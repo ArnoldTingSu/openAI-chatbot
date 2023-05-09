@@ -18,7 +18,6 @@ POST http://localhost:3000/api/ai
 Content-Type: application/application/json
 
 {
-  "messages": [
-  { "role" : "user", "content": "Are we there yet?"}
-  ]
+   "agent": "facebookAgent", 
+    "url": "https://www.theverge.com/23564531/sony-dualsense-edge-wireless-controller-ps5-features-review"
 }
