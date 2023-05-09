@@ -10,6 +10,19 @@ const generate = () => nextTick(() => chat(props));
 defineExpose({
     generate,
 });
+
+const postURL = computed (
+    () =>
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        props.url
+    )}`
+);
+
+const {copy} = useClipboard();
+function post() {
+    copy(announcement.value || "")
+    setTimeout(() => window.open(postURL.value, "_blank"), 500)
+}
 </script>
 <template>
   <CardGeneric
@@ -18,6 +31,6 @@ defineExpose({
     :body="announcement"
   >
     <button class="btn btn-neutral" @click="generate()">Regenerate</button>
-    <a class="btn btn-primary">Post</a>
+    <a :href="postURL" class="btn btn-primary" @click.prevent="post">Copy Annoucement and Post</a>
   </CardGeneric>
 </template>
