@@ -31,7 +31,7 @@ const postURL = computed(
         <strong>{{ announcement?.length }}</strong>
       </div>
       <div>
-        <button class="btn btn-neutral" @click="generate()">Regenerate</button>
+        <button class="btn btn-neutral m-2" @click="generate()">Regenerate</button>
         <a :href="postURL" class="btn btn-primary" target="_blank">Post</a>
       </div>
     </div>
